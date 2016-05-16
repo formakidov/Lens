@@ -3,24 +3,22 @@ import UIKit
 class CropperViewController: UIViewController, UINavigationControllerDelegate {
     
     @IBOutlet var imageView: CroppableImageView!
+    
     var toCropImage: UIImage!
     var finalImage: UIImage?
-    var pointsOnImage:[CGPoint] = []
     
-    @IBAction func scaleImage(sender: UIPinchGestureRecognizer) {
-        self.imageView.transform = CGAffineTransformScale(self.imageView.transform, sender.scale, sender.scale)
-        sender.scale = 1
-    }
+    var pointsOnImage:[CGPoint] = []
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         dispatch_async(dispatch_get_main_queue(), {
             var points: [CGPoint]
             if (self.pointsOnImage.count == 4) {
                 points = self.calculatePoints()
+                self.imageView.setPointsCoordinates(points)
             } else {
-                points = self.getDefaultPoints()
+                self.imageView.resetPointsView()
+                points = self.imageView.pointsView.getPointsCoords()
             }
-            self.imageView.setPointsCoordinates(points)
         })
     }
     
@@ -28,9 +26,7 @@ class CropperViewController: UIViewController, UINavigationControllerDelegate {
         super.viewDidLoad()
         
         let b = UIBarButtonItem(title: "OK", style: .Plain, target: self, action: #selector(CropperViewController.projectImage))
-        self.navigationItem.setRightBarButtonItems([b], animated: true)
-        
-        imageView.removePointsView()
+        navigationItem.setRightBarButtonItems([b], animated: true)
         
         displayImage()
     }
@@ -63,7 +59,8 @@ class CropperViewController: UIViewController, UINavigationControllerDelegate {
                 }
                 points = self.calculatePoints()
             } else {
-                points = self.getDefaultPoints()
+                self.imageView.resetPointsView()
+                points = self.imageView.pointsView.getPointsCoords()
             }
             
             dispatch_async(dispatch_get_main_queue(), {
@@ -92,7 +89,7 @@ class CropperViewController: UIViewController, UINavigationControllerDelegate {
         navigationItem.rightBarButtonItem?.enabled = false
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-            let points = self.getCropperPoints()
+            let points = self.getSelectedCoordsInPixels()
             
             self.finalImage = CVWrapper().processImageWithOpenCV(self.toCropImage, points: UnsafeMutablePointer(points)) as UIImage
             
@@ -104,83 +101,40 @@ class CropperViewController: UIViewController, UINavigationControllerDelegate {
         })
     }
     
-    func getDefaultPoints() -> [CGPoint] {
-        let imageViewSize = self.imageView.frame.size
-        let width = imageViewSize.width
-        let height = imageViewSize.height
-        let points: [CGPoint] = [
-            CGPoint(x: width * 0.2, y: height * 0.8),
-            CGPoint(x: width * 0.8, y: height * 0.8),
-            CGPoint(x: width * 0.8, y: height * 0.2),
-            CGPoint(x: width * 0.2, y: height * 0.2)]
-        
-        return points
-    }
-    
     func calculatePoints() -> [CGPoint] {
         var points: [CGPoint] = []
         
-        let imageSize = self.toCropImage.size
+        let imageSize = toCropImage.size
         
-        let rect = self.calculateRectOfImageInImageView(self.imageView)
+        let rect = imageView.calculateRectOfImageInImageView()
         let xRatio = imageSize.width / rect.width
         let yRatio = imageSize.height / rect.height
         
-        let margins = self.getImageMarginsInImageView()
+        let margins = imageView.getImageMargins()
         
-        for i in (0...3).reverse() {
-            points.append(CGPointMake(self.pointsOnImage[i].x / xRatio + margins.left, self.pointsOnImage[i].y / yRatio + margins.top))
+        for p in pointsOnImage {
+            points.append(CGPointMake(p.x / xRatio + margins.left, p.y / yRatio + margins.top))
         }
         
         return points
     }
     
-    func getCropperPoints() -> [CGPoint] {
-        let cropPoints = self.imageView.pointsView.getPointsCoords()
+    func getSelectedCoordsInPixels() -> [CGPoint] {
+        let cropPoints = imageView.pointsView.getPointsCoords()
         var points: [CGPoint] = []
         
-        let rect = self.calculateRectOfImageInImageView(self.imageView)
-        let imageSize = self.toCropImage.size
+        let rect = imageView.calculateRectOfImageInImageView()
+        let imageSize = toCropImage.size
         let xRatio = imageSize.width / rect.width
         let yRatio = imageSize.height / rect.height
         
-        let margins = getImageMarginsInImageView()
+        let margins = imageView.getImageMargins()
         
         for p in cropPoints {
             points.append(CGPointMake((p.x - margins.left) * xRatio, (p.y - margins.top) * yRatio))
         }
         
         return points
-    }
-    
-    func getImageMarginsInImageView() -> (top: CGFloat, left: CGFloat) {
-        let rect = self.calculateRectOfImageInImageView(self.imageView)
-        let imageViewSize = self.imageView.bounds.size
-        let margins = (top: (imageViewSize.height - rect.height) / 2, left: (imageViewSize.width - rect.width) / 2)
-        return margins
-    }
-    
-    func calculateRectOfImageInImageView(imageView: UIImageView) -> CGRect {
-        let imageViewSize = imageView.frame.size
-        let imgSize = imageView.image?.size
-        
-        guard let imageSize = imgSize where imgSize != nil else {
-            return CGRectZero
-        }
-        
-        let scaleWidth = imageViewSize.width / imageSize.width
-        let scaleHeight = imageViewSize.height / imageSize.height
-        let aspect = fmin(scaleWidth, scaleHeight)
-        
-        var imageRect = CGRect(x: 0, y: 0, width: imageSize.width * aspect, height: imageSize.height * aspect)
-        
-        imageRect.origin.x = (imageViewSize.width - imageRect.size.width) / 2
-        imageRect.origin.y = (imageViewSize.height - imageRect.size.height) / 2
-        
-        imageRect.origin.x += imageView.frame.origin.x
-        imageRect.origin.y += imageView.frame.origin.y
-        
-        return imageRect
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {

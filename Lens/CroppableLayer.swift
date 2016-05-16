@@ -2,17 +2,25 @@
 import UIKit
 
 class CroppableLayer: UIView {
-
+    
+    /**
+     
+     0 - - 1
+     |     |
+     |     |
+     3 - - 2
+     
+     */
+    
     let k_POINT_WIDTH: CGFloat = 30
     
     var activePoint: UIView?
     
     var points = [UIView]()
     var isContainView = true
-    let pointColor = UIColor.blueColor()
-    let lineColor = UIColor.yellowColor()
+    let pointColor = UIColor.blackColor()
+    let lineColor = UIColor(red: 14.0/255, green: 122.0/255, blue: 254.0/255, alpha: 1.0)
     let lastBezierPath = UIBezierPath()
-    //lastBezierPath = [UIBezierPath bezierPath];
     
     init(imageView: UIImageView) {
         super.init(frame: CGRectMake(0,0, imageView.frame.size.width, imageView.frame.size.height))
@@ -42,11 +50,11 @@ class CroppableLayer: UIView {
     
     func getPointView(num: Int, at p: CGPoint) -> UIView {
         let point = UIView(frame: CGRectMake(p.x - k_POINT_WIDTH / 2, p.y - k_POINT_WIDTH / 2, k_POINT_WIDTH, k_POINT_WIDTH))
-        point.alpha = 0.8
+        point.alpha = 0.6
         point.backgroundColor = pointColor
         point.layer.borderColor = lineColor.CGColor
         point.layer.borderWidth = 4
-        point.layer.cornerRadius = k_POINT_WIDTH / 2;
+        point.layer.cornerRadius = k_POINT_WIDTH / 2
         
         let number = UILabel(frame: CGRectMake(0, 0, k_POINT_WIDTH, k_POINT_WIDTH))
         
@@ -54,7 +62,7 @@ class CroppableLayer: UIView {
         number.textColor = UIColor.whiteColor()
         number.backgroundColor = UIColor.clearColor()
         number.font = UIFont.systemFontOfSize(14)
-        number.textAlignment = NSTextAlignment.Center;
+        number.textAlignment = NSTextAlignment.Center
         
         point.addSubview(number)
         
@@ -65,23 +73,23 @@ class CroppableLayer: UIView {
         var coords = [CGPoint]()
         
         for p in points {
-            let coord = CGPointMake(p.frame.origin.x + k_POINT_WIDTH / 2, p.frame.origin.y + k_POINT_WIDTH / 2);
+            let coord = CGPointMake(p.frame.origin.x + k_POINT_WIDTH / 2, p.frame.origin.y + k_POINT_WIDTH / 2)
             coords.append(coord)
         }
         
         return coords
     }
     
-    func resetPoints(num :Int) {
-        let frameWidth = self.frame.size.width
-        let frameHeight = self.frame.size.height
+    func resetPoints() {
+        let frameWidth = frame.size.width
+        let frameHeight = frame.size.height
         
         points.removeAll()
         
         points.append(getPointView(0, at: CGPointMake(frameWidth * 0.2, frameHeight * 0.2)))
-        points.append(getPointView(0, at: CGPointMake(frameWidth * 0.8, frameHeight * 0.2)))
-        points.append(getPointView(0, at: CGPointMake(frameWidth * 0.8, frameHeight * 0.8)))
-        points.append(getPointView(0, at: CGPointMake(frameWidth * 0.2, frameHeight * 0.8)))
+        points.append(getPointView(1, at: CGPointMake(frameWidth * 0.8, frameHeight * 0.2)))
+        points.append(getPointView(2, at: CGPointMake(frameWidth * 0.8, frameHeight * 0.8)))
+        points.append(getPointView(3, at: CGPointMake(frameWidth * 0.2, frameHeight * 0.8)))
         
         for p in points {
             addSubview(p)
@@ -89,17 +97,17 @@ class CroppableLayer: UIView {
     }
     
     override func drawRect(rect: CGRect) {
-        if (self.points.count == 0) {
+        if (points.count == 0) {
             return
         }
         
         let context = UIGraphicsGetCurrentContext()
-        CGContextClearRect(context, self.frame)
-        let components = CGColorGetComponents(self.lineColor.CGColor);
+        CGContextClearRect(context, frame)
+        let components = CGColorGetComponents(lineColor.CGColor)
         
         var red, green, blue, alpha: CGFloat
         
-        if(CGColorGetNumberOfComponents(self.lineColor.CGColor) == 2) {
+        if(CGColorGetNumberOfComponents(lineColor.CGColor) == 2) {
             red = 1
             green = 1
             blue = 1
@@ -114,20 +122,20 @@ class CroppableLayer: UIView {
             }
         }
         
-        CGContextSetRGBStrokeColor(context, red, green, blue, alpha);
-        CGContextSetLineWidth(context, 2.0);
+        CGContextSetRGBStrokeColor(context, red, green, blue, alpha)
+        CGContextSetLineWidth(context, 2.0)
         
         let point1 = points[0]
-        CGContextMoveToPoint(context, point1.frame.origin.x + k_POINT_WIDTH / 2, point1.frame.origin.y + k_POINT_WIDTH / 2);
+        CGContextMoveToPoint(context, point1.frame.origin.x + k_POINT_WIDTH / 2, point1.frame.origin.y + k_POINT_WIDTH / 2)
         
         for p in points {
-            CGContextAddLineToPoint(context, p.frame.origin.x + k_POINT_WIDTH/2, p.frame.origin.y + k_POINT_WIDTH/2);
+            CGContextAddLineToPoint(context, p.frame.origin.x + k_POINT_WIDTH/2, p.frame.origin.y + k_POINT_WIDTH/2)
         }
         
-        CGContextAddLineToPoint(context, point1.frame.origin.x + k_POINT_WIDTH/2, point1.frame.origin.y + k_POINT_WIDTH/2);
+        CGContextAddLineToPoint(context, point1.frame.origin.x + k_POINT_WIDTH/2, point1.frame.origin.y + k_POINT_WIDTH/2)
         
         // tell the context to draw the stroked line
-        CGContextStrokePath(context);
+        CGContextStrokePath(context)
     }
     
     func distanceBetween(first: CGPoint, and last: CGPoint) -> CGFloat {
@@ -143,18 +151,18 @@ class CroppableLayer: UIView {
     }
     
     func findPointAtLocation(location: CGPoint) {
-        activePoint!.backgroundColor = pointColor;
-        activePoint = nil;
-        var smallestDistance = CGFloat.infinity;
+        activePoint?.backgroundColor = pointColor
+        activePoint = nil
+        var smallestDistance = CGFloat.infinity
         
         for point in points {
-            let extentedFrame = CGRectInset(point.frame, -20, -20);
+            let extentedFrame = CGRectInset(point.frame, -20, -20)
             if (CGRectContainsPoint(extentedFrame, location))
             {
                 let distanceToThis = distanceBetween(point.frame.origin, and:location)
                 if distanceToThis < smallestDistance {
-                    self.activePoint = point;
-                    smallestDistance = distanceToThis;
+                    activePoint = point
+                    smallestDistance = distanceToThis
                 }
             }
         }
@@ -164,64 +172,27 @@ class CroppableLayer: UIView {
     }
     
     func moveActivePointToLocation(locationPoint: CGPoint) {
-        var newX = locationPoint.x;
-        var newY = locationPoint.y;
+        var newX = locationPoint.x
+        var newY = locationPoint.y
         //cap off possible values
         if newX < 0 {
             newX = 0
-        } else if newX > self.frame.size.width {
-            newX = self.frame.size.width;
+        } else if newX > frame.size.width {
+            newX = frame.size.width
         }
         if newY < 0 {
             newY = 0
-        } else if newY > self.frame.size.height {
-            newY = self.frame.size.height
+        } else if newY > frame.size.height {
+            newY = frame.size.height
         }
         
-        let newLocPoint = CGPointMake(newX, newY);
+        let newLocPoint = CGPointMake(newX, newY)
         
         if let active = activePoint {
-            active.frame = CGRectMake(newLocPoint.x - k_POINT_WIDTH/2, newLocPoint.y - k_POINT_WIDTH/2, k_POINT_WIDTH, k_POINT_WIDTH);
+            active.frame = CGRectMake(newLocPoint.x - k_POINT_WIDTH/2, newLocPoint.y - k_POINT_WIDTH/2, k_POINT_WIDTH, k_POINT_WIDTH)
             setNeedsDisplay()
         }
 
-    }
-    
-    func getPath() -> UIBezierPath? {
-        if self.points.count == 0 {
-            return nil
-        }
-        
-        let points = getPointsCoords()
-//        UIBezierPath *aPath = [UIBezierPath bezierPath];
-        let aPath = UIBezierPath()
-        // Set the starting point of the shape.
-        let p1 = points[0]
-        aPath.moveToPoint(CGPointMake(p1.x, p1.y))
-        
-        for point in points {
-            aPath.addLineToPoint(CGPointMake(point.x, point.y));
-        }
-        
-        aPath.closePath()
-        
-        return aPath
-    }
-    
-    func maskImageView(image: UIImageView) {
-        if let path = getPath() {
-            var rect = CGRectZero;
-            rect.size = image.image!.size;
-            
-            let shapeLayer = CAShapeLayer(layer: layer)
-            
-            shapeLayer.frame = CGRectMake(0, 0, image.frame.size.width, image.frame.size.height);
-            shapeLayer.path = path.CGPath;
-            shapeLayer.fillColor = UIColor.whiteColor().CGColor
-            shapeLayer.backgroundColor = UIColor.clearColor().CGColor
-            
-            image.layer.mask = shapeLayer
-        }
     }
     
 }

@@ -125,9 +125,6 @@
                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ry7-k0-ma4" customClass="CroppableImageView" customModule="Lens" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Ex4-ZL-UJY" appends="YES" id="hYD-Ba-hfC"/>
-                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -144,11 +141,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QSc-Dc-8Bc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pinchGestureRecognizer id="Ex4-ZL-UJY">
-                    <connections>
-                        <action selector="scaleImage:" destination="bby-gB-aAS" id="TkT-vR-aD3"/>
-                    </connections>
-                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="133" y="-413"/>
         </scene>

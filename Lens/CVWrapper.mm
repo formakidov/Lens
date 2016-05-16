@@ -14,10 +14,10 @@
 @implementation CVWrapper
 
 - (UIImage*) processImageWithOpenCV:(UIImage*) sourceImage points: (CGPoint[]) points {
-    CGPoint ptBottomLeft = points[0];
-    CGPoint ptBottomRight = points[1];
-    CGPoint ptTopRight = points[2];
-    CGPoint ptTopLeft = points[3];
+    CGPoint ptTopLeft = points[0];
+    CGPoint ptTopRight = points[1];
+    CGPoint ptBottomRight = points[2];
+    CGPoint ptBottomLeft = points[3];
     
     CGFloat w1 = sqrt( pow(ptBottomRight.x - ptBottomLeft.x , 2) + pow(ptBottomRight.x - ptBottomLeft.x, 2));
     CGFloat w2 = sqrt( pow(ptTopRight.x - ptTopLeft.x , 2) + pow(ptTopRight.x - ptTopLeft.x, 2));

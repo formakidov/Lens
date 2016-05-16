@@ -12,7 +12,7 @@ class ProjectedImageViewController: UIViewController, UINavigationControllerDele
         super.viewDidLoad()
         
         let b = UIBarButtonItem(title: "Save", style: .Plain, target: self, action: #selector(ProjectedImageViewController.btnSave))
-        self.navigationItem.setRightBarButtonItems([b], animated: true)
+        navigationItem.setRightBarButtonItems([b], animated: true)
         
         imageView.image = toSaveImage!
         
@@ -22,14 +22,14 @@ class ProjectedImageViewController: UIViewController, UINavigationControllerDele
     }
     
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
-        return self.imageView
+        return imageView
     }
     
     func btnSave() {
         if (!GalleryManager.addImage(imageView.image!)) {
             Utils.showAlert(self, title: "An error occured", message: "Cannot save image. Please try again", btnText: "OK")
         } else {
-            self.navigationController?.popToRootViewControllerAnimated(true)
+            navigationController?.popToRootViewControllerAnimated(true)
         }
     }
     

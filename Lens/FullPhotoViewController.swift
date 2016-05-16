@@ -20,28 +20,28 @@ class FullPhotoViewController: UIViewController, UIScrollViewDelegate, UIActionS
         let del = UIBarButtonItem(title: "Delete", style: .Plain, target: self, action: #selector(FullPhotoViewController.btnDeleteImage))
         let share = UIBarButtonItem(title: "Share", style: .Plain, target: self, action: #selector(FullPhotoViewController.btnShareImage))
         
-        self.navigationItem.setRightBarButtonItems([share, del], animated: true)
+        navigationItem.setRightBarButtonItems([share, del], animated: true)
     }
     
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
-        return self.imageView
+        return imageView
     }
     
     func btnDeleteImage() {
         if (!GalleryManager.deleteImage(imagePath)) {
             Utils.showAlert(self, title: "An error occured", message: "Cannot delete image. Please try again", btnText: "WTF???")
         } else {
-            self.navigationController?.popToRootViewControllerAnimated(true)
+            navigationController?.popToRootViewControllerAnimated(true)
         }
     }
     
     func btnShareImage() {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         if let popoverController = alertController.popoverPresentationController {
-            popoverController.barButtonItem = self.navigationItem.rightBarButtonItem
+            popoverController.barButtonItem = navigationItem.rightBarButtonItem
         }
         
-        let path = self.imagePath
+        let path = imagePath
         
         let fbAction = UIAlertAction(title: "Facebook", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
@@ -63,11 +63,11 @@ class FullPhotoViewController: UIViewController, UIScrollViewDelegate, UIActionS
         alertController.addAction(twiAction)
         alertController.addAction(cancelAction)
         
-        self.presentViewController(alertController, animated: true, completion: nil)
+        presentViewController(alertController, animated: true, completion: nil)
     }
     
     func shareDropbox() {
-        ShareManager.shareDropbox(self, path: self.imagePath)
+        ShareManager.shareDropbox(self, path: imagePath)
     }
 
 }

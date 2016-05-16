@@ -12,7 +12,7 @@ class PhotoViewFlowLayout: UICollectionViewFlowLayout {
             if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.Pad) {
                 numberOfColumns += 1
             }
-            let itemWidth = (self.collectionView!.frame.width - 5) / numberOfColumns
+            let itemWidth = (collectionView!.frame.width - 5) / numberOfColumns
 
             return CGSizeMake(itemWidth, itemWidth)
         }
