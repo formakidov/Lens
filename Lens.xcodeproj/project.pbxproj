@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		BA41AD051CD263F700843573 /* FullPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA41ACFF1CD263F700843573 /* FullPhotoViewController.swift */; };
 		BA41AD061CD263F700843573 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA41AD001CD263F700843573 /* ViewController.swift */; };
-		BA41AD0A1CD2641D00843573 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA41AD091CD2641D00843573 /* AppDelegate.swift */; };
+		BA446C601CE9E38400D9FA9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA446C5F1CE9E38400D9FA9C /* AppDelegate.swift */; };
 		BA5317B31CD72E2B00B829CD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5317B21CD72E2B00B829CD /* Utils.swift */; };
 		BA6D9FA31CE9AF1600DC2967 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6D9FA21CE9AF1600DC2967 /* CoreDataManager.swift */; };
 		BA6D9FA51CE9B64E00DC2967 /* GalleryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6D9FA41CE9B64E00DC2967 /* GalleryManager.swift */; };
@@ -36,7 +36,7 @@
 		BA41ACFE1CD263F700843573 /* CropperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropperViewController.swift; sourceTree = "<group>"; };
 		BA41ACFF1CD263F700843573 /* FullPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullPhotoViewController.swift; sourceTree = "<group>"; };
 		BA41AD001CD263F700843573 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BA41AD091CD2641D00843573 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../iTechArtLens/iTechArtLens/AppDelegate.swift; sourceTree = "<group>"; };
+		BA446C5F1CE9E38400D9FA9C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA5317B21CD72E2B00B829CD /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		BA6D9FA21CE9AF1600DC2967 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		BA6D9FA41CE9B64E00DC2967 /* GalleryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryManager.swift; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 		BAEB11DE1CD262B5009F857C /* Lens */ = {
 			isa = PBXGroup;
 			children = (
-				BA41AD091CD2641D00843573 /* AppDelegate.swift */,
+				BA446C5F1CE9E38400D9FA9C /* AppDelegate.swift */,
 				BA41AD001CD263F700843573 /* ViewController.swift */,
 				BA41ACFF1CD263F700843573 /* FullPhotoViewController.swift */,
 				BA41ACFE1CD263F700843573 /* CropperViewController.swift */,
@@ -278,7 +278,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA41AD0A1CD2641D00843573 /* AppDelegate.swift in Sources */,
 				BA6D9FA71CE9B9F100DC2967 /* Constants.swift in Sources */,
 				BA41AD061CD263F700843573 /* ViewController.swift in Sources */,
 				BAEE05AF1CD8A7FD00F53F0B /* PhotoViewFlowLayout.swift in Sources */,
@@ -294,6 +293,7 @@
 				BA7A672B1CD7778C00C5B6C6 /* JBCroppableLayer.m in Sources */,
 				BA7A672A1CD7778C00C5B6C6 /* JBCroppableImageView.m in Sources */,
 				BA6D9FA31CE9AF1600DC2967 /* CoreDataManager.swift in Sources */,
+				BA446C601CE9E38400D9FA9C /* AppDelegate.swift in Sources */,
 				BAEB11E81CD262B5009F857C /* Lens.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
