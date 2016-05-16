@@ -10,14 +10,14 @@
 		BA41AD051CD263F700843573 /* FullPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA41ACFF1CD263F700843573 /* FullPhotoViewController.swift */; };
 		BA41AD061CD263F700843573 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA41AD001CD263F700843573 /* ViewController.swift */; };
 		BA446C601CE9E38400D9FA9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA446C5F1CE9E38400D9FA9C /* AppDelegate.swift */; };
+		BA446C621CE9E41C00D9FA9C /* CroppableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA446C611CE9E41C00D9FA9C /* CroppableImageView.swift */; };
+		BA446C651CE9E4EE00D9FA9C /* CroppableLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA446C641CE9E4EE00D9FA9C /* CroppableLayer.swift */; };
 		BA5317B31CD72E2B00B829CD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5317B21CD72E2B00B829CD /* Utils.swift */; };
 		BA6D9FA31CE9AF1600DC2967 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6D9FA21CE9AF1600DC2967 /* CoreDataManager.swift */; };
 		BA6D9FA51CE9B64E00DC2967 /* GalleryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6D9FA41CE9B64E00DC2967 /* GalleryManager.swift */; };
 		BA6D9FA71CE9B9F100DC2967 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6D9FA61CE9B9F100DC2967 /* Constants.swift */; };
 		BA6DE7C81CE31DCD00BCCF22 /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6DE7C71CE31DCD00BCCF22 /* ImageRepository.swift */; };
 		BA6DE7CA1CE3787800BCCF22 /* ShareManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6DE7C91CE3787800BCCF22 /* ShareManager.swift */; };
-		BA7A672A1CD7778C00C5B6C6 /* JBCroppableImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7A67261CD7778C00C5B6C6 /* JBCroppableImageView.m */; };
-		BA7A672B1CD7778C00C5B6C6 /* JBCroppableLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7A67281CD7778C00C5B6C6 /* JBCroppableLayer.m */; };
 		BA7A672D1CD7933400C5B6C6 /* ProjectedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7A672C1CD7933400C5B6C6 /* ProjectedImageViewController.swift */; };
 		BA947BC41CD26729006ADD83 /* CVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = BA947BBB1CD26729006ADD83 /* CVWrapper.mm */; };
 		BAC993881CDB429F003858CE /* CropperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA41ACFE1CD263F700843573 /* CropperViewController.swift */; };
@@ -37,16 +37,14 @@
 		BA41ACFF1CD263F700843573 /* FullPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullPhotoViewController.swift; sourceTree = "<group>"; };
 		BA41AD001CD263F700843573 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BA446C5F1CE9E38400D9FA9C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BA446C611CE9E41C00D9FA9C /* CroppableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CroppableImageView.swift; sourceTree = "<group>"; };
+		BA446C641CE9E4EE00D9FA9C /* CroppableLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CroppableLayer.swift; sourceTree = "<group>"; };
 		BA5317B21CD72E2B00B829CD /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		BA6D9FA21CE9AF1600DC2967 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		BA6D9FA41CE9B64E00DC2967 /* GalleryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryManager.swift; sourceTree = "<group>"; };
 		BA6D9FA61CE9B9F100DC2967 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BA6DE7C71CE31DCD00BCCF22 /* ImageRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
 		BA6DE7C91CE3787800BCCF22 /* ShareManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareManager.swift; sourceTree = "<group>"; };
-		BA7A67251CD7778C00C5B6C6 /* JBCroppableImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBCroppableImageView.h; sourceTree = "<group>"; };
-		BA7A67261CD7778C00C5B6C6 /* JBCroppableImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBCroppableImageView.m; sourceTree = "<group>"; };
-		BA7A67271CD7778C00C5B6C6 /* JBCroppableLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBCroppableLayer.h; sourceTree = "<group>"; };
-		BA7A67281CD7778C00C5B6C6 /* JBCroppableLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBCroppableLayer.m; sourceTree = "<group>"; };
 		BA7A672C1CD7933400C5B6C6 /* ProjectedImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectedImageViewController.swift; sourceTree = "<group>"; };
 		BA947BBA1CD26729006ADD83 /* CVWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVWrapper.h; sourceTree = "<group>"; };
 		BA947BBB1CD26729006ADD83 /* CVWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CVWrapper.mm; sourceTree = "<group>"; };
@@ -117,14 +115,12 @@
 				BAEE05B01CD8C18800F53F0B /* PhotoViewCell.swift */,
 				BA5317B21CD72E2B00B829CD /* Utils.swift */,
 				BA6D9FA61CE9B9F100DC2967 /* Constants.swift */,
+				BA446C611CE9E41C00D9FA9C /* CroppableImageView.swift */,
+				BA446C641CE9E4EE00D9FA9C /* CroppableLayer.swift */,
 				BAFF5E081CE9E21400F15243 /* LaunchScreen.storyboard */,
 				BAFF5E0A1CE9E21400F15243 /* Main.storyboard */,
 				BA947BBA1CD26729006ADD83 /* CVWrapper.h */,
 				BA947BBB1CD26729006ADD83 /* CVWrapper.mm */,
-				BA7A67251CD7778C00C5B6C6 /* JBCroppableImageView.h */,
-				BA7A67261CD7778C00C5B6C6 /* JBCroppableImageView.m */,
-				BA7A67271CD7778C00C5B6C6 /* JBCroppableLayer.h */,
-				BA7A67281CD7778C00C5B6C6 /* JBCroppableLayer.m */,
 				BAEB11E91CD262B5009F857C /* Assets.xcassets */,
 				BAEB11E61CD262B5009F857C /* Lens.xcdatamodeld */,
 				BAEB11EE1CD262B5009F857C /* Info.plist */,
@@ -279,8 +275,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA6D9FA71CE9B9F100DC2967 /* Constants.swift in Sources */,
+				BA446C621CE9E41C00D9FA9C /* CroppableImageView.swift in Sources */,
 				BA41AD061CD263F700843573 /* ViewController.swift in Sources */,
 				BAEE05AF1CD8A7FD00F53F0B /* PhotoViewFlowLayout.swift in Sources */,
+				BA446C651CE9E4EE00D9FA9C /* CroppableLayer.swift in Sources */,
 				BAEE05B11CD8C18800F53F0B /* PhotoViewCell.swift in Sources */,
 				BA41AD051CD263F700843573 /* FullPhotoViewController.swift in Sources */,
 				BAC993881CDB429F003858CE /* CropperViewController.swift in Sources */,
@@ -290,8 +288,6 @@
 				BA6DE7C81CE31DCD00BCCF22 /* ImageRepository.swift in Sources */,
 				BA6D9FA51CE9B64E00DC2967 /* GalleryManager.swift in Sources */,
 				BA947BC41CD26729006ADD83 /* CVWrapper.mm in Sources */,
-				BA7A672B1CD7778C00C5B6C6 /* JBCroppableLayer.m in Sources */,
-				BA7A672A1CD7778C00C5B6C6 /* JBCroppableImageView.m in Sources */,
 				BA6D9FA31CE9AF1600DC2967 /* CoreDataManager.swift in Sources */,
 				BA446C601CE9E38400D9FA9C /* AppDelegate.swift in Sources */,
 				BAEB11E81CD262B5009F857C /* Lens.xcdatamodeld in Sources */,

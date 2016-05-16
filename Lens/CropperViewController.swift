@@ -2,7 +2,7 @@ import UIKit
 
 class CropperViewController: UIViewController, UINavigationControllerDelegate {
     
-    @IBOutlet var imageView: JBCroppableImageView!
+    @IBOutlet var imageView: CroppableImageView!
     var toCropImage: UIImage!
     var finalImage: UIImage?
     var pointsOnImage:[CGPoint] = []
@@ -20,7 +20,7 @@ class CropperViewController: UIViewController, UINavigationControllerDelegate {
             } else {
                 points = self.getDefaultPoints()
             }
-            self.imageView.setPointsCoordinates(UnsafeMutablePointer(points))
+            self.imageView.setPointsCoordinates(points)
         })
     }
     
@@ -69,7 +69,7 @@ class CropperViewController: UIViewController, UINavigationControllerDelegate {
             dispatch_async(dispatch_get_main_queue(), {
                 indicator.stopAnimating()
                 self.navigationItem.rightBarButtonItem?.enabled = true
-                self.imageView.setPointsCoordinates(UnsafeMutablePointer(points))
+                self.imageView.setPointsCoordinates(points)
             })
             
         })
@@ -136,7 +136,7 @@ class CropperViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     func getCropperPoints() -> [CGPoint] {
-        let cropPoints = self.imageView.getPoints()
+        let cropPoints = self.imageView.pointsView.getPointsCoords()
         var points: [CGPoint] = []
         
         let rect = self.calculateRectOfImageInImageView(self.imageView)
@@ -146,11 +146,8 @@ class CropperViewController: UIViewController, UINavigationControllerDelegate {
         
         let margins = getImageMarginsInImageView()
         
-        if let downcastNSValueArray = cropPoints as? [NSValue] {
-            for i in 0 ..< downcastNSValueArray.count {
-                let p = downcastNSValueArray[i]
-                points.append(CGPointMake((p.CGPointValue().x - margins.left) * xRatio, (p.CGPointValue().y - margins.top) * yRatio))
-            }
+        for p in cropPoints {
+            points.append(CGPointMake((p.x - margins.left) * xRatio, (p.y - margins.top) * yRatio))
         }
         
         return points

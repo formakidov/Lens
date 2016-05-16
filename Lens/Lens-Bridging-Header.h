@@ -3,6 +3,3 @@
 //
 
 #import "CVWrapper.h"
-
-#import "JBCroppableImageView.h"
-#import "JBCroppableLayer.h"
