@@ -23,10 +23,10 @@
 		BAC993881CDB429F003858CE /* CropperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA41ACFE1CD263F700843573 /* CropperViewController.swift */; };
 		BAEB11E81CD262B5009F857C /* Lens.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BAEB11E61CD262B5009F857C /* Lens.xcdatamodeld */; };
 		BAEB11EA1CD262B5009F857C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAEB11E91CD262B5009F857C /* Assets.xcassets */; };
-		BAEB11F81CD26358009F857C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAEB11F41CD26358009F857C /* LaunchScreen.storyboard */; };
-		BAEB11F91CD26358009F857C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAEB11F61CD26358009F857C /* Main.storyboard */; };
 		BAEE05AF1CD8A7FD00F53F0B /* PhotoViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEE05AE1CD8A7FD00F53F0B /* PhotoViewFlowLayout.swift */; };
 		BAEE05B11CD8C18800F53F0B /* PhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEE05B01CD8C18800F53F0B /* PhotoViewCell.swift */; };
+		BAFF5E0C1CE9E21400F15243 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAFF5E081CE9E21400F15243 /* LaunchScreen.storyboard */; };
+		BAFF5E0D1CE9E21400F15243 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAFF5E0A1CE9E21400F15243 /* Main.storyboard */; };
 		DB1FF4B2186E82D3D0AE4DB4 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAFC7BED3E9ECE42813CA17 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,10 +55,10 @@
 		BAEB11E71CD262B5009F857C /* Lens.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Lens.xcdatamodel; sourceTree = "<group>"; };
 		BAEB11E91CD262B5009F857C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAEB11EE1CD262B5009F857C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BAEB11F51CD26358009F857C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../iTechArtLens/iTechArtLens/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		BAEB11F71CD26358009F857C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../iTechArtLens/iTechArtLens/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BAEE05AE1CD8A7FD00F53F0B /* PhotoViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewFlowLayout.swift; sourceTree = "<group>"; };
 		BAEE05B01CD8C18800F53F0B /* PhotoViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewCell.swift; sourceTree = "<group>"; };
+		BAFF5E091CE9E21400F15243 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BAFF5E0B1CE9E21400F15243 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DF8A86AA35304B5526F51890 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,8 +117,8 @@
 				BAEE05B01CD8C18800F53F0B /* PhotoViewCell.swift */,
 				BA5317B21CD72E2B00B829CD /* Utils.swift */,
 				BA6D9FA61CE9B9F100DC2967 /* Constants.swift */,
-				BAEB11F61CD26358009F857C /* Main.storyboard */,
-				BAEB11F41CD26358009F857C /* LaunchScreen.storyboard */,
+				BAFF5E081CE9E21400F15243 /* LaunchScreen.storyboard */,
+				BAFF5E0A1CE9E21400F15243 /* Main.storyboard */,
 				BA947BBA1CD26729006ADD83 /* CVWrapper.h */,
 				BA947BBB1CD26729006ADD83 /* CVWrapper.mm */,
 				BA7A67251CD7778C00C5B6C6 /* JBCroppableImageView.h */,
@@ -204,9 +204,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAEB11F91CD26358009F857C /* Main.storyboard in Resources */,
+				BAFF5E0D1CE9E21400F15243 /* Main.storyboard in Resources */,
 				BAEB11EA1CD262B5009F857C /* Assets.xcassets in Resources */,
-				BAEB11F81CD26358009F857C /* LaunchScreen.storyboard in Resources */,
+				BAFF5E0C1CE9E21400F15243 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,18 +301,18 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		BAEB11F41CD26358009F857C /* LaunchScreen.storyboard */ = {
+		BAFF5E081CE9E21400F15243 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BAEB11F51CD26358009F857C /* Base */,
+				BAFF5E091CE9E21400F15243 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		BAEB11F61CD26358009F857C /* Main.storyboard */ = {
+		BAFF5E0A1CE9E21400F15243 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BAEB11F71CD26358009F857C /* Base */,
+				BAFF5E0B1CE9E21400F15243 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
