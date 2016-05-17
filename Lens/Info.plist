@@ -60,6 +60,10 @@
 	<string>235679766801413</string>
 	<key>FacebookDisplayName</key>
 	<string>iTechArt-Group-LENS</string>
+	<key>TyphoonInitialAssemblies</key>
+	<array>
+		<string>LEAssembly</string>
+	</array>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>

@@ -14,6 +14,7 @@
 		BA446C651CE9E4EE00D9FA9C /* CroppableLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA446C641CE9E4EE00D9FA9C /* CroppableLayer.swift */; };
 		BA4BC36B1CEB0277006CF05F /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4BC36A1CEB0277006CF05F /* LocalizedString.swift */; };
 		BA4BC36E1CEB04EA006CF05F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA4BC3701CEB04EA006CF05F /* Localizable.strings */; };
+		BA4BC3721CEB1430006CF05F /* LEAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4BC3711CEB1430006CF05F /* LEAssembly.swift */; };
 		BA5317B31CD72E2B00B829CD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5317B21CD72E2B00B829CD /* Utils.swift */; };
 		BA6D9FA31CE9AF1600DC2967 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6D9FA21CE9AF1600DC2967 /* CoreDataManager.swift */; };
 		BA6D9FA51CE9B64E00DC2967 /* GalleryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6D9FA41CE9B64E00DC2967 /* GalleryManager.swift */; };
@@ -45,6 +46,7 @@
 		BA446C671CEA259800D9FA9C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		BA4BC36A1CEB0277006CF05F /* LocalizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
 		BA4BC36F1CEB04EA006CF05F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BA4BC3711CEB1430006CF05F /* LEAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEAssembly.swift; sourceTree = "<group>"; };
 		BA5317B21CD72E2B00B829CD /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		BA6D9FA21CE9AF1600DC2967 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		BA6D9FA41CE9B64E00DC2967 /* GalleryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryManager.swift; sourceTree = "<group>"; };
@@ -123,6 +125,9 @@
 				BA6D9FA61CE9B9F100DC2967 /* Constants.swift */,
 				BA446C611CE9E41C00D9FA9C /* CroppableImageView.swift */,
 				BA446C641CE9E4EE00D9FA9C /* CroppableLayer.swift */,
+				BA4BC3711CEB1430006CF05F /* LEAssembly.swift */,
+				BA4BC36A1CEB0277006CF05F /* LocalizedString.swift */,
+				BA4BC3701CEB04EA006CF05F /* Localizable.strings */,
 				BAFF5E081CE9E21400F15243 /* LaunchScreen.storyboard */,
 				BAFF5E0A1CE9E21400F15243 /* Main.storyboard */,
 				BA947BBA1CD26729006ADD83 /* CVWrapper.h */,
@@ -131,8 +136,6 @@
 				BAEB11E61CD262B5009F857C /* Lens.xcdatamodeld */,
 				BAEB11EE1CD262B5009F857C /* Info.plist */,
 				BA41ACFC1CD263F700843573 /* Lens-Bridging-Header.h */,
-				BA4BC36A1CEB0277006CF05F /* LocalizedString.swift */,
-				BA4BC3701CEB04EA006CF05F /* Localizable.strings */,
 			);
 			path = Lens;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				BA5317B31CD72E2B00B829CD /* Utils.swift in Sources */,
 				BA6DE7CA1CE3787800BCCF22 /* ShareManager.swift in Sources */,
 				BA6DE7C81CE31DCD00BCCF22 /* ImageRepository.swift in Sources */,
+				BA4BC3721CEB1430006CF05F /* LEAssembly.swift in Sources */,
 				BA6D9FA51CE9B64E00DC2967 /* GalleryManager.swift in Sources */,
 				BA947BC41CD26729006ADD83 /* CVWrapper.mm in Sources */,
 				BA6D9FA31CE9AF1600DC2967 /* CoreDataManager.swift in Sources */,

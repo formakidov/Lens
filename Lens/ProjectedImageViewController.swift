@@ -5,6 +5,7 @@ class ProjectedImageViewController: UIViewController, UINavigationControllerDele
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
+    var galleryManager: GalleryManager!
     
     var toSaveImage: UIImage?
     
@@ -26,10 +27,10 @@ class ProjectedImageViewController: UIViewController, UINavigationControllerDele
     }
     
     func btnSave() {
-        if (!GalleryManager.addImage(imageView.image!)) {
-            Utils.showAlert(self, title: "An error occured".localized, message: "Cannot save image".localized, btnText: "OK")
-        } else {
+        if (galleryManager.addImage(imageView.image!)) {
             navigationController?.popToRootViewControllerAnimated(true)
+        } else {
+            Utils.showAlert(self, title: "An error occured".localized, message: "Cannot save image".localized, btnText: "OK")
         }
     }
     

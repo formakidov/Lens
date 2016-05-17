@@ -2,7 +2,24 @@
 import CoreData
 
 class ImageRepository {
+    
     static let IMAGE_DATA = "Image"
+    
+    static func queryAll() -> [NSManagedObject]? {
+        let managedContext = CoreDataManager.managedObjectContext
+        
+        let fetchRequest = NSFetchRequest(entityName: "Image")
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        do {
+            let results = try managedContext.executeFetchRequest(fetchRequest)
+            return results as? [NSManagedObject]
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+            return nil
+        }
+    }
     
     static func save(path: String, date: Int64) -> Bool {
         let managedContext = CoreDataManager.managedObjectContext

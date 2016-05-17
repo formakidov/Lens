@@ -5,9 +5,9 @@ import FBSDKShareKit
 import TwitterKit
 import SwiftyDropbox
 
-class ShareManager {
+class ShareManager : NSObject {
     
-    static func shareFacebook(controller: UIViewController, path: String) {
+    func shareFacebook(controller: UIViewController, path: String) {
         let photo = FBSDKSharePhoto()
         photo.image = UIImage(named: path)
         photo.userGenerated = true
@@ -22,7 +22,7 @@ class ShareManager {
         dialog.show()
     }
     
-    static func shareTwitter(controller: UIViewController, path: String) {
+    func shareTwitter(controller: UIViewController, path: String) {
         let composer = TWTRComposer()
         composer.setImage(UIImage(named: path))
         composer.showFromViewController(controller) { result in
@@ -34,7 +34,7 @@ class ShareManager {
         }
     }
     
-    static func shareDropbox(controller: UIViewController, path: String) {
+    func shareDropbox(controller: UIViewController, path: String) {
         if let client = Dropbox.authorizedClient {
             print("Uploading")
             

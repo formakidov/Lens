@@ -1,9 +1,13 @@
 
 import CoreData
 
-class GalleryManager {
+class GalleryManager : NSObject {
     
-    static func addImage(image: UIImage) -> Bool {
+    func getAll() -> [NSManagedObject]? {
+        return ImageRepository.queryAll()
+    }
+    
+    func addImage(image: UIImage) -> Bool {
         let filePath = Utils.generateImageFilePath()
         
         let fileSavedSuccessfully = saveImageFile(image, path: filePath)
@@ -15,18 +19,18 @@ class GalleryManager {
         }
     }
     
-    static func deleteImage(path: String) -> Bool {
+    func deleteImage(path: String) -> Bool {
         removeImageFile(path)
         return ImageRepository.deleteBy(path: path)
     }
     
-    static func saveImageFile(image: UIImage, path: String) -> Bool {
+    func saveImageFile(image: UIImage, path: String) -> Bool {
         let pngImageData = UIImagePNGRepresentation(image)
         let result = pngImageData!.writeToFile(path, atomically: true)
         return result
     }
     
-    static func removeImageFile(path: String) -> Bool {
+    func removeImageFile(path: String) -> Bool {
         let fileManager:NSFileManager = NSFileManager.defaultManager()
         let filePath = NSString(format:"%@", path) as String
         do {

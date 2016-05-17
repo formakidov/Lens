@@ -5,6 +5,8 @@ class FullPhotoViewController: UIViewController, UIScrollViewDelegate, UIActionS
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
+    var shareManager: ShareManager!
+    var galleryManager: GalleryManager!
     var imagePath: String!
     
     override func viewDidLoad() {
@@ -28,10 +30,10 @@ class FullPhotoViewController: UIViewController, UIScrollViewDelegate, UIActionS
     }
     
     func btnDeleteImage() {
-        if (!GalleryManager.deleteImage(imagePath)) {
-            Utils.showAlert(self, title: "An error occured".localized, message: "Cannot delete image".localized, btnText: "WTF???")
-        } else {
+        if (galleryManager.deleteImage(imagePath)) {
             navigationController?.popToRootViewControllerAnimated(true)
+        } else {
+            Utils.showAlert(self, title: "An error occured".localized, message: "Cannot delete image".localized, btnText: "WTF???")
         }
     }
     
@@ -45,7 +47,7 @@ class FullPhotoViewController: UIViewController, UIScrollViewDelegate, UIActionS
         
         let fbAction = UIAlertAction(title: "Facebook", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
-            ShareManager.shareFacebook(self, path: path)
+            self.shareManager.shareFacebook(self, path: path)
         })
         let dropAction = UIAlertAction(title: "Dropbox", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
@@ -54,9 +56,9 @@ class FullPhotoViewController: UIViewController, UIScrollViewDelegate, UIActionS
         })
         let twiAction = UIAlertAction(title: "Twitter", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
-            ShareManager.shareTwitter(self, path: path)
+            self.shareManager.shareTwitter(self, path: path)
         })
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel".localized, style: .Cancel, handler: nil)
         
         alertController.addAction(fbAction)
         alertController.addAction(dropAction)
@@ -67,7 +69,7 @@ class FullPhotoViewController: UIViewController, UIScrollViewDelegate, UIActionS
     }
     
     func shareDropbox() {
-        ShareManager.shareDropbox(self, path: imagePath)
+        shareManager.shareDropbox(self, path: imagePath)
     }
 
 }

@@ -20,8 +20,12 @@ PODS:
     - Fabric
   - TwitterKit (2.0.2):
     - TwitterCore (= 2.0.2)
+  - Typhoon (3.4.7):
+    - Typhoon/no-arc (= 3.4.7)
+  - Typhoon/no-arc (3.4.7)
 
 DEPENDENCIES:
+  - Bolts
   - Fabric
   - FBSDKCoreKit
   - FBSDKLoginKit
@@ -29,6 +33,7 @@ DEPENDENCIES:
   - OpenCV (= 2.4.9-zp)
   - SwiftyDropbox
   - TwitterKit
+  - Typhoon
 
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
@@ -41,5 +46,6 @@ SPEC CHECKSUMS:
   SwiftyDropbox: e0d4aa3166082ec07ed942e94edb8c732b3376e4
   TwitterCore: 0f44d8980a6879d5205dcb4e010d15e643e56fa0
   TwitterKit: c4e40f289a3d7cc9fab9f241edd7502385468b65
+  Typhoon: 0953addabd5a10a930973fcc131c03badc88c4ba
 
 COCOAPODS: 0.39.0

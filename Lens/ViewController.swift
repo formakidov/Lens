@@ -4,13 +4,15 @@ import CoreData
 
 class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
 
-    var picker:UIImagePickerController?=UIImagePickerController()
+    var picker:UIImagePickerController? = UIImagePickerController()
     
     @IBOutlet weak var photosCollectionView: UICollectionView!
     
     var images :[NSManagedObject] = []
     var toCropImage: UIImage?
     var selectedImagePath: String?
+    
+    var galleryManager: GalleryManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,20 +23,11 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UIIm
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        let managedContext = CoreDataManager.managedObjectContext
-        
-        let fetchRequest = NSFetchRequest(entityName: "Image")
-        let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        
-        do {
-            let results = try managedContext.executeFetchRequest(fetchRequest)
-            images = results as! [NSManagedObject]
-            
+        if let result = galleryManager.getAll() {
+            images = result
             photosCollectionView.reloadData()
-        } catch let error as NSError {
+        } else {
             Utils.showAlert(self, title: "An Error occured".localized, message: "Cannot load images".localized, btnText: "WTF???")
-            print("Could not fetch \(error), \(error.userInfo)")
         }
     }
     
