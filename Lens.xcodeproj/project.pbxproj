@@ -12,6 +12,8 @@
 		BA446C601CE9E38400D9FA9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA446C5F1CE9E38400D9FA9C /* AppDelegate.swift */; };
 		BA446C621CE9E41C00D9FA9C /* CroppableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA446C611CE9E41C00D9FA9C /* CroppableImageView.swift */; };
 		BA446C651CE9E4EE00D9FA9C /* CroppableLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA446C641CE9E4EE00D9FA9C /* CroppableLayer.swift */; };
+		BA4BC36B1CEB0277006CF05F /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4BC36A1CEB0277006CF05F /* LocalizedString.swift */; };
+		BA4BC36E1CEB04EA006CF05F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA4BC3701CEB04EA006CF05F /* Localizable.strings */; };
 		BA5317B31CD72E2B00B829CD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5317B21CD72E2B00B829CD /* Utils.swift */; };
 		BA6D9FA31CE9AF1600DC2967 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6D9FA21CE9AF1600DC2967 /* CoreDataManager.swift */; };
 		BA6D9FA51CE9B64E00DC2967 /* GalleryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6D9FA41CE9B64E00DC2967 /* GalleryManager.swift */; };
@@ -39,6 +41,10 @@
 		BA446C5F1CE9E38400D9FA9C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA446C611CE9E41C00D9FA9C /* CroppableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CroppableImageView.swift; sourceTree = "<group>"; };
 		BA446C641CE9E4EE00D9FA9C /* CroppableLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CroppableLayer.swift; sourceTree = "<group>"; };
+		BA446C661CEA259800D9FA9C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		BA446C671CEA259800D9FA9C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		BA4BC36A1CEB0277006CF05F /* LocalizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
+		BA4BC36F1CEB04EA006CF05F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BA5317B21CD72E2B00B829CD /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		BA6D9FA21CE9AF1600DC2967 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		BA6D9FA41CE9B64E00DC2967 /* GalleryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryManager.swift; sourceTree = "<group>"; };
@@ -125,6 +131,8 @@
 				BAEB11E61CD262B5009F857C /* Lens.xcdatamodeld */,
 				BAEB11EE1CD262B5009F857C /* Info.plist */,
 				BA41ACFC1CD263F700843573 /* Lens-Bridging-Header.h */,
+				BA4BC36A1CEB0277006CF05F /* LocalizedString.swift */,
+				BA4BC3701CEB04EA006CF05F /* Localizable.strings */,
 			);
 			path = Lens;
 			sourceTree = "<group>";
@@ -184,6 +192,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = BAEB11D31CD262B5009F857C;
 			productRefGroup = BAEB11DD1CD262B5009F857C /* Products */;
@@ -201,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAFF5E0D1CE9E21400F15243 /* Main.storyboard in Resources */,
+				BA4BC36E1CEB04EA006CF05F /* Localizable.strings in Resources */,
 				BAEB11EA1CD262B5009F857C /* Assets.xcassets in Resources */,
 				BAFF5E0C1CE9E21400F15243 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -282,6 +292,7 @@
 				BAEE05B11CD8C18800F53F0B /* PhotoViewCell.swift in Sources */,
 				BA41AD051CD263F700843573 /* FullPhotoViewController.swift in Sources */,
 				BAC993881CDB429F003858CE /* CropperViewController.swift in Sources */,
+				BA4BC36B1CEB0277006CF05F /* LocalizedString.swift in Sources */,
 				BA7A672D1CD7933400C5B6C6 /* ProjectedImageViewController.swift in Sources */,
 				BA5317B31CD72E2B00B829CD /* Utils.swift in Sources */,
 				BA6DE7CA1CE3787800BCCF22 /* ShareManager.swift in Sources */,
@@ -297,10 +308,19 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		BA4BC3701CEB04EA006CF05F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA4BC36F1CEB04EA006CF05F /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		BAFF5E081CE9E21400F15243 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				BAFF5E091CE9E21400F15243 /* Base */,
+				BA446C661CEA259800D9FA9C /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -309,6 +329,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				BAFF5E0B1CE9E21400F15243 /* Base */,
+				BA446C671CEA259800D9FA9C /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

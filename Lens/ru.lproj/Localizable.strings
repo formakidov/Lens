@@ -1,0 +1,11 @@
+
+"Save" = "Сохранить";
+"Delete" = "Удалить";
+"Share" = "Поделиться";
+"Cancel" = "Отмена";
+"An Error occured" = "Произошла ошибка";
+"Cannot load images" = "Невозможно загрузить фотографии";
+"Cannot open camera" = "Невозжомно открыть камеру";
+"Device doesn't support camera" = "Устройство не поддерживает камеру";
+"Cannot delete image" = "Невозможно удалить фотографию";
+"Cannot save image" = "Невозможно сохранить фотографию";

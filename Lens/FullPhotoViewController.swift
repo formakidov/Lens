@@ -17,8 +17,8 @@ class FullPhotoViewController: UIViewController, UIScrollViewDelegate, UIActionS
         scrollView.maximumZoomScale = 5.0
         scrollView.delegate = self
         
-        let del = UIBarButtonItem(title: "Delete", style: .Plain, target: self, action: #selector(FullPhotoViewController.btnDeleteImage))
-        let share = UIBarButtonItem(title: "Share", style: .Plain, target: self, action: #selector(FullPhotoViewController.btnShareImage))
+        let del = UIBarButtonItem(title: "Delete".localized, style: .Plain, target: self, action: #selector(FullPhotoViewController.btnDeleteImage))
+        let share = UIBarButtonItem(title: "Share".localized, style: .Plain, target: self, action: #selector(FullPhotoViewController.btnShareImage))
         
         navigationItem.setRightBarButtonItems([share, del], animated: true)
     }
@@ -29,7 +29,7 @@ class FullPhotoViewController: UIViewController, UIScrollViewDelegate, UIActionS
     
     func btnDeleteImage() {
         if (!GalleryManager.deleteImage(imagePath)) {
-            Utils.showAlert(self, title: "An error occured", message: "Cannot delete image. Please try again", btnText: "WTF???")
+            Utils.showAlert(self, title: "An error occured".localized, message: "Cannot delete image".localized, btnText: "WTF???")
         } else {
             navigationController?.popToRootViewControllerAnimated(true)
         }

@@ -33,7 +33,7 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UIIm
             
             photosCollectionView.reloadData()
         } catch let error as NSError {
-            Utils.showAlert(self, title: "An Error occured", message: "Cannot load images", btnText: "WTF???")
+            Utils.showAlert(self, title: "An Error occured".localized, message: "Cannot load images".localized, btnText: "WTF???")
             print("Could not fetch \(error), \(error.userInfo)")
         }
     }
@@ -46,7 +46,7 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UIIm
             presentViewController(picker!, animated: true, completion: nil)
         } else {
             photosCollectionView.reloadData()
-            Utils.showAlert(self, title: "Cannot open camera", message: "Device doesn't support camera", btnText: "OK")
+            Utils.showAlert(self, title: "Cannot open camera".localized, message: "Device doesn't support camera".localized, btnText: "OK")
         }
     }
     

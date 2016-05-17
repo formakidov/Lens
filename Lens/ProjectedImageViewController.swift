@@ -11,7 +11,7 @@ class ProjectedImageViewController: UIViewController, UINavigationControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let b = UIBarButtonItem(title: "Save", style: .Plain, target: self, action: #selector(ProjectedImageViewController.btnSave))
+        let b = UIBarButtonItem(title: "Save".localized, style: .Plain, target: self, action: #selector(ProjectedImageViewController.btnSave))
         navigationItem.setRightBarButtonItems([b], animated: true)
         
         imageView.image = toSaveImage!
@@ -27,7 +27,7 @@ class ProjectedImageViewController: UIViewController, UINavigationControllerDele
     
     func btnSave() {
         if (!GalleryManager.addImage(imageView.image!)) {
-            Utils.showAlert(self, title: "An error occured", message: "Cannot save image. Please try again", btnText: "OK")
+            Utils.showAlert(self, title: "An error occured".localized, message: "Cannot save image".localized, btnText: "OK")
         } else {
             navigationController?.popToRootViewControllerAnimated(true)
         }
