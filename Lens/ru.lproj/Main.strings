@@ -1,7 +1,4 @@
 
-/* Class = "UIButton"; normalTitle = "Take Photo"; ObjectID = "Nri-DW-MLl"; */
-"Nri-DW-MLl.normalTitle" = "Сделать фото";
 
-/* Class = "UIButton"; normalTitle = "Open gallery"; ObjectID = "Oar-H7-lCA"; */
-"Oar-H7-lCA.normalTitle" = "Открыть галлерею";
-
+/* Class = "UILabel"; text = "Нет недавних фотографий"; ObjectID = "aUQ-zp-8Vo"; */
+"aUQ-zp-8Vo.text" = "Нет недавних фотографий";

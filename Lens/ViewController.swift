@@ -8,6 +8,8 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UIIm
     
     @IBOutlet weak var photosCollectionView: UICollectionView!
     
+    @IBOutlet weak var infoLabel: UILabel!
+    
     var images :[NSManagedObject] = []
     var toCropImage: UIImage?
     var selectedImagePath: String?
@@ -18,6 +20,12 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UIIm
         super.viewDidLoad()
         picker?.delegate=self
         photosCollectionView.collectionViewLayout = PhotoViewFlowLayout()
+        
+        let openGallery = UIBarButtonItem(title: "Open gallery".localized, style: .Plain, target: self, action: #selector(ViewController.openGallery))
+        let takePhoto = UIBarButtonItem(title: "Take photo".localized, style: .Plain, target: self, action: #selector(ViewController.takePhotoBtn))
+        
+        navigationItem.setLeftBarButtonItems([openGallery], animated: true)
+        navigationItem.setRightBarButtonItems([takePhoto], animated: true)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -25,13 +33,14 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UIIm
         
         if let result = galleryManager.getAll() {
             images = result
+            infoLabel.hidden = result.count > 0
             photosCollectionView.reloadData()
         } else {
             Utils.showAlert(self, title: "An Error occured".localized, message: "Cannot load images".localized, btnText: "WTF???")
         }
     }
     
-    @IBAction func takePictureBtn(sender: UIButton) {
+    func takePhotoBtn() {
         if UIImagePickerController.isSourceTypeAvailable(.Camera) {
             picker!.allowsEditing = true
             picker!.sourceType = UIImagePickerControllerSourceType.Camera
@@ -43,7 +52,7 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UIIm
         }
     }
     
-    @IBAction func openGallery(sender: UIButton) {
+    func openGallery() {
         picker!.allowsEditing = false
         picker!.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         presentViewController(picker!, animated: true, completion: nil)
@@ -66,7 +75,7 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UIIm
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! PhotoViewCell
         let imagePath = images[indexPath.row].valueForKey("path") as! String
-        cell.img.image = UIImage(contentsOfFile: imagePath)
+        cell.img.image = UIImage(named: imagePath)
         
         return cell
     }

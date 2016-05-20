@@ -54,7 +54,7 @@ class CropperViewController: UIViewController, UINavigationControllerDelegate {
             
             let detected = CVWrapper().detectEdges(self.toCropImage, size: imageSize)
             if (detected.count == 4) {
-                for point in detected as! [NSValue] {
+                for point in detected {
                     self.pointsOnImage.append(point.CGPointValue())
                 }
                 points = self.calculatePoints()

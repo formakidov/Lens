@@ -33,22 +33,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nri-DW-MLl">
-                                <rect key="frame" x="503" y="70" width="77" height="30"/>
-                                <state key="normal" title="Take Photo"/>
-                                <connections>
-                                    <action selector="takePictureBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ISs-YT-HHm"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oar-H7-lCA">
-                                <rect key="frame" x="20" y="70" width="87" height="30"/>
-                                <state key="normal" title="Open gallery"/>
-                                <connections>
-                                    <action selector="openGallery:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N0G-Ug-KcS"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="alO-Cu-HM6">
-                                <rect key="frame" x="0.0" y="108" width="600" height="492"/>
+                                <rect key="frame" x="0.0" y="12" width="600" height="588"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="5" id="iWp-gG-Tkf">
                                     <size key="itemSize" width="150" height="150"/>
@@ -58,7 +44,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="cIF-Ny-QYB" customClass="PhotoViewCell" customModule="Lens" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                        <rect key="frame" x="0.0" y="64" width="150" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
@@ -86,21 +72,26 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="cCj-c7-032"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No recent photos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUQ-zp-8Vo">
+                                <rect key="frame" x="234" y="290" width="133" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Nri-DW-MLl" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="70" id="39V-v1-QuT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="alO-Cu-HM6" secondAttribute="trailing" constant="-20" id="Ehy-FW-JTF"/>
-                            <constraint firstItem="alO-Cu-HM6" firstAttribute="top" secondItem="Oar-H7-lCA" secondAttribute="bottom" constant="8" id="Ge3-gU-SD8"/>
-                            <constraint firstItem="Oar-H7-lCA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="70" id="PpQ-q3-qQi"/>
-                            <constraint firstItem="alO-Cu-HM6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="ahd-xD-RXZ"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="alO-Cu-HM6" secondAttribute="bottom" id="f8i-T8-pfV"/>
-                            <constraint firstItem="Oar-H7-lCA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="lDu-Mn-jIu"/>
-                            <constraint firstItem="Nri-DW-MLl" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="mdP-fn-jEi"/>
+                            <constraint firstItem="aUQ-zp-8Vo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ULd-Vw-phS"/>
+                            <constraint firstItem="alO-Cu-HM6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-52" id="Wkq-xK-eT8"/>
+                            <constraint firstAttribute="bottom" secondItem="alO-Cu-HM6" secondAttribute="bottom" id="X6v-nL-Md7"/>
+                            <constraint firstAttribute="trailing" secondItem="alO-Cu-HM6" secondAttribute="trailing" id="r6D-1f-wBd"/>
+                            <constraint firstItem="alO-Cu-HM6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vT6-35-epm"/>
+                            <constraint firstItem="aUQ-zp-8Vo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zaN-O7-zHf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0g3-bJ-Ucd"/>
                     <connections>
+                        <outlet property="infoLabel" destination="aUQ-zp-8Vo" id="md3-Lu-uXk"/>
                         <outlet property="photosCollectionView" destination="alO-Cu-HM6" id="Rtt-TL-ZQf"/>
                         <segue destination="bby-gB-aAS" kind="show" identifier="cropper" id="4wL-yf-whX"/>
                         <segue destination="CZN-Tk-bdV" kind="show" identifier="fullScreen" id="CdU-bW-EKk"/>

@@ -39,8 +39,8 @@ class CroppableLayer: UIView {
     func addPointsAt(coords: [CGPoint]) {
         var tmp = [UIView]()
         
-        for i in 0..<coords.count {
-            let pointToAdd = getPointView(i, at:coords[i])
+        for (i, coord) in coords.enumerate() {
+            let pointToAdd = getPointView(i, at: coord)
             tmp.append(pointToAdd)
             addSubview(pointToAdd)
         }
@@ -97,7 +97,7 @@ class CroppableLayer: UIView {
     }
     
     override func drawRect(rect: CGRect) {
-        if (points.count == 0) {
+        guard points.count == 4 else {
             return
         }
         
