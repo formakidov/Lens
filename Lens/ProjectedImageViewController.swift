@@ -20,6 +20,8 @@ class ProjectedImageViewController: UIViewController, UINavigationControllerDele
         scrollView.minimumZoomScale = 1.0
         scrollView.maximumZoomScale = 5.0
         scrollView.delegate = self
+        
+        navigationController?.interactivePopGestureRecognizer?.enabled = false;
     }
     
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {

@@ -21,11 +21,12 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UIIm
         picker?.delegate=self
         photosCollectionView.collectionViewLayout = PhotoViewFlowLayout()
         
-        let openGallery = UIBarButtonItem(title: "Open gallery".localized, style: .Plain, target: self, action: #selector(ViewController.openGallery))
-        let takePhoto = UIBarButtonItem(title: "Take photo".localized, style: .Plain, target: self, action: #selector(ViewController.takePhotoBtn))
+        let openGallery = UIBarButtonItem(image: UIImage(named: "Gallery"), style: .Plain, target: self, action: #selector(ViewController.openGallery))
+        let takePhoto = UIBarButtonItem(image: UIImage(named: "Camera"), style: .Plain, target: self, action: #selector(ViewController.takePhotoBtn))
         
-        navigationItem.setLeftBarButtonItems([openGallery], animated: true)
-        navigationItem.setRightBarButtonItems([takePhoto], animated: true)
+        navigationItem.setRightBarButtonItems([takePhoto, openGallery], animated: true)
+        
+        self.title = "Documents".localized
     }
     
     override func viewWillAppear(animated: Bool) {

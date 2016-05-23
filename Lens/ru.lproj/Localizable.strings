@@ -6,12 +6,8 @@
 
 
 
-
-"Open gallery" = "Открыть галерею";
-"Take photo" = "Сделать фото";
+"Documents" = "Документы";
 "Save" = "Сохранить";
-"Delete" = "Удалить";
-"Share" = "Поделиться";
 "Cancel" = "Отмена";
 "An Error occured" = "Произошла ошибка";
 "Cannot load images" = "Невозможно загрузить фотографии";

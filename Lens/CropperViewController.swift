@@ -1,4 +1,5 @@
 import UIKit
+import MBProgressHUD
 
 class CropperViewController: UIViewController, UINavigationControllerDelegate {
     
@@ -25,19 +26,28 @@ class CropperViewController: UIViewController, UINavigationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let b = UIBarButtonItem(title: "OK", style: .Plain, target: self, action: #selector(CropperViewController.projectImage))
-        navigationItem.setRightBarButtonItems([b], animated: true)
+        let save = UIBarButtonItem(title: "OK", style: .Plain, target: self, action: #selector(CropperViewController.projectImage))
+        let back = UIBarButtonItem(title: "Documents".localized, style: .Plain, target: nil, action: nil)
+        
+        navigationItem.setRightBarButtonItems([save], animated: true)
+        if let nav = navigationController {
+            nav.interactivePopGestureRecognizer?.enabled = false;
+            nav.navigationBar.topItem?.backBarButtonItem = back
+        }
         
         displayImage()
     }
     
     func displayImage() {
         navigationItem.rightBarButtonItem?.enabled = false
-        let indicator = startIndicator()
+        
+        let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+        hud.labelText = "Loading image..."
+        
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             self.toCropImage = Utils.fixOrientation(self.toCropImage)
             dispatch_async(dispatch_get_main_queue(), {
-                indicator.stopAnimating()
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                 self.imageView.image = self.toCropImage
                 self.detectBorders()
             })
@@ -45,7 +55,8 @@ class CropperViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     func detectBorders() {
-        let indicator = startIndicator()
+        let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+        hud.labelText = "Detecting bounds..."
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             
@@ -64,7 +75,7 @@ class CropperViewController: UIViewController, UINavigationControllerDelegate {
             }
             
             dispatch_async(dispatch_get_main_queue(), {
-                indicator.stopAnimating()
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                 self.navigationItem.rightBarButtonItem?.enabled = true
                 self.imageView.setPointsCoordinates(points)
             })
@@ -73,19 +84,10 @@ class CropperViewController: UIViewController, UINavigationControllerDelegate {
 
     }
     
-    func startIndicator() -> UIActivityIndicatorView {
-        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
-        indicator.frame = CGRectMake(0.0, 0.0, 40.0, 40.0)
-        indicator.center = view.center
-        view.addSubview(indicator)
-        indicator.bringSubviewToFront(view)
-        indicator.startAnimating()
-        
-        return indicator
-    }
-    
     func projectImage() {
-        let indicator = startIndicator()
+        let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+        hud.labelText = "Processing..."
+        
         navigationItem.rightBarButtonItem?.enabled = false
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
@@ -94,7 +96,7 @@ class CropperViewController: UIViewController, UINavigationControllerDelegate {
             self.finalImage = CVWrapper().processImageWithOpenCV(self.toCropImage, points: UnsafeMutablePointer(points)) as UIImage
             
             dispatch_async(dispatch_get_main_queue(), {
-                indicator.stopAnimating()
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                 self.navigationItem.rightBarButtonItem?.enabled = true
                 self.performSegueWithIdentifier("projected", sender: self)
             })

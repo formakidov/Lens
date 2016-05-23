@@ -19,10 +19,15 @@ class FullPhotoViewController: UIViewController, UIScrollViewDelegate, UIActionS
         scrollView.maximumZoomScale = 5.0
         scrollView.delegate = self
         
-        let del = UIBarButtonItem(title: "Delete".localized, style: .Plain, target: self, action: #selector(FullPhotoViewController.btnDeleteImage))
-        let share = UIBarButtonItem(title: "Share".localized, style: .Plain, target: self, action: #selector(FullPhotoViewController.btnShareImage))
+        let del = UIBarButtonItem(image: UIImage(named: "Delete"), style: .Plain, target: self, action: #selector(FullPhotoViewController.btnDeleteImage))
+        let share = UIBarButtonItem(image: UIImage(named: "Share"), style: .Plain, target: self, action: #selector(FullPhotoViewController.btnShareImage))
+        let back = UIBarButtonItem(title: "Documents".localized, style: .Plain, target: nil, action: nil)
         
-        navigationItem.setRightBarButtonItems([share, del], animated: true)
+        navigationItem.setRightBarButtonItems([del, share], animated: true)
+        if let nav = navigationController {
+            nav.interactivePopGestureRecognizer?.enabled = false;
+            nav.navigationBar.topItem?.backBarButtonItem = back
+        }
     }
     
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
