@@ -35,11 +35,26 @@ class FullPhotoViewController: UIViewController, UIScrollViewDelegate, UIActionS
     }
     
     func btnDeleteImage() {
-        if (galleryManager.deleteImage(imagePath)) {
-            navigationController?.popToRootViewControllerAnimated(true)
-        } else {
-            Utils.showAlert(self, title: "An error occured".localized, message: "Cannot delete image".localized, btnText: "WTF???")
+        let deleteAlert = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        if let popoverController = deleteAlert.popoverPresentationController {
+            popoverController.barButtonItem = navigationItem.rightBarButtonItem
         }
+        
+        let deleteAction = UIAlertAction(title: "Delete".localized, style: .Destructive, handler: {
+            (alert: UIAlertAction!) -> Void in
+            if (self.galleryManager.deleteImage(self.imagePath)) {
+                self.navigationController?.popToRootViewControllerAnimated(true)
+            } else {
+                Utils.showAlert(self, title: "An error occured".localized, message: "Cannot delete image".localized, btnText: "WTF???")
+            }
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel".localized, style: .Cancel, handler: nil)
+        
+        deleteAlert.addAction(deleteAction)
+        deleteAlert.addAction(cancelAction)
+        
+        presentViewController(deleteAlert, animated: true, completion: nil)
     }
     
     func btnShareImage() {

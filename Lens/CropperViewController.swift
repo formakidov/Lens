@@ -26,10 +26,10 @@ class CropperViewController: UIViewController, UINavigationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let save = UIBarButtonItem(title: "OK", style: .Plain, target: self, action: #selector(CropperViewController.projectImage))
+        let save = UIBarButtonItem(title: "Done".localized, style: .Plain, target: self, action: #selector(CropperViewController.projectImage))
         let back = UIBarButtonItem(title: "Documents".localized, style: .Plain, target: nil, action: nil)
         
-        navigationItem.setRightBarButtonItems([save], animated: true)
+        navigationItem.setRightBarButtonItem(save, animated: true)
         if let nav = navigationController {
             nav.interactivePopGestureRecognizer?.enabled = false;
             nav.navigationBar.topItem?.backBarButtonItem = back
